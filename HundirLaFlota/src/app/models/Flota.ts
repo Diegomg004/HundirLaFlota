@@ -1,9 +1,9 @@
 import { Barcos } from "./Barcos";
 
 export class Flota{
-    flota: Array<Barcos>;
+    barcos: Array<Barcos>;
 
-    constructor(flota: Array<Barcos>){
-        this.flota = flota;
+    constructor(barcos: Array<Barcos>){
+        this.barcos = barcos;
     }
 }
