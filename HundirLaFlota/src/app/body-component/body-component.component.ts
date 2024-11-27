@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Barcos } from '../models/barcos';  
-import { Coordenadas } from '../models/coordenadas';
+import { Barcos } from '../models/Barcos';  
+import { Coordenadas } from '../models/Cordenadas';
 
 @Component({
   selector: 'app-body-component',
