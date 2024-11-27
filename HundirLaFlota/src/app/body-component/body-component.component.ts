@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './body-component.component.html',
   styleUrl: './body-component.component.sass'
 })
-export class BodyComponentComponent {
+export class BodyComponentComponent{
 
 }
