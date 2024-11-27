@@ -5,9 +5,9 @@ export class Barcos {
     private _tocado: number;
     private _hundido: boolean;
     private _cordenadasBarco: Coordenadas[];
-    private _posicionesTocadas: string[];
+    private _posicionesTocadas: Coordenadas[];
 
-    constructor(_tamano: number, _tocado: number, _hundido: boolean, _cordenadasBarco:Coordenadas[], _posicionesTocadas: string[]) {
+    constructor(_tamano: number, _tocado: number, _hundido: boolean, _cordenadasBarco:Coordenadas[], _posicionesTocadas: Coordenadas[]) {
         this._tamano = this.tamano;
         this._tocado = this.tocado;
         this._cordenadasBarco = _cordenadasBarco;
@@ -31,18 +31,11 @@ export class Barcos {
         return this._cordenadasBarco;
       }
 
-      get posicionesTocadas(): string[] {
+      get posicionesTocadas(): Coordenadas[] {
         return this._posicionesTocadas;
       }
     
 
-    marcarTocado() {
-        this._tocado++;
-        this._hundido = this.tocado === this.tamano;
-      }
-
-      estaHundido(): boolean {
-        return this.hundido;
-      }
+ 
 }
 
