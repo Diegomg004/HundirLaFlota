@@ -7,7 +7,7 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-main-component',
   standalone: true,
-  imports: [NgIf],
+  imports: [],
   templateUrl: './main-component.component.html',
   styleUrl: './main-component.component.sass'
 })
@@ -15,7 +15,6 @@ import { NgIf } from '@angular/common';
 export class MainComponentComponent {
   Flota = new Array<Barcos>;
   Barco1 = new Barcos(1, 0, false, [{ x: 1, y: 2 }], []);
-<<<<<<< HEAD
   tablero: Casilla[][] = [[new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla],
   [new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla],
   [new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla],
@@ -26,8 +25,6 @@ export class MainComponentComponent {
   [new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla],
   [new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla],
   [new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla]];
-=======
-  tablero: Casilla[][] = [[new Casilla, new Casilla, new Casilla],[new Casilla, new Casilla, new Casilla]];
   flota: Barcos[] = []; 
   tamanoBarco: number = 0; 
   coordenadas: Coordenadas[] = []; 
@@ -35,7 +32,6 @@ export class MainComponentComponent {
   y: number = 0; 
   barcosMaximos: number = 5; 
   general:boolean = true;
->>>>>>> 9f4ee9521bbf6eb3ddb1c7c6faba3785d5b9c836
 
   constructor() {
     this.Flota = [this.Barco1];
