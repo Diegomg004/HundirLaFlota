@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Flota } from '../models/Flota';
+import { Casilla } from '../models/Casilla';
 
 @Component({
   selector: 'app-main-component',
@@ -9,27 +10,29 @@ import { Flota } from '../models/Flota';
   styleUrl: './main-component.component.sass'
 })
 export class MainComponentComponent {
+  Flota = new Array<Barcos>;
+  Barco1 = new Barcos(1, 0, false, [{ x: 1, y: 2 }], []);
+  tablero: Casilla[][] = [[new Casilla, new Casilla, new Casilla],[new Casilla, new Casilla, new Casilla]];
 
-  
+  constructor() {
+    this.Flota = [this.Barco1];
+    this.tablero
 
-  comprobarDisparo(x: number = 1,  y: number = 2,flota: Flota) {
-    flota.barcos.forEach(barco => {
-      barco.coordenadasBarco.forEach((coordenada: { x: any; y: any; }) => {
-          if (coordenada.x === x && coordenada.y === y) {
-              console.log("¡Impacto! Se ha alcanzado un barco en las coordenadas", x + " " + y);
-          }
-      });
-  });
-}
-}
-export class BodyComponentComponent {
-  tamanobarcos : number = 5;
-  Barcos:[] = [];
-  cantBarcos: number | undefined;
-  
-  constructor() { 
+  }
 
   }
 }
 
+  realizarDisparo(x: number, y: number) { 
+    const impacto = this.disparo(x, y);
+    if (impacto) {
+      console.log("¡Has acertado!");
+      this.tablero[x][y].url = "boom.png";
+    } else {
+      console.log("¡Agua!");
+      this.tablero[x][y].url = "agua.png";
+    }
 
+  }
+
+}
