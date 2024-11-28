@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { Barcos } from '../models/Barcos';
 import { Coordenadas } from '../models/Cordenadas';
-<<<<<<< HEAD
-=======
 import { Casilla } from '../models/Casilla';
->>>>>>> 37482069078ffc7fb92395cb185d7e88c7682ddc
 
 @Component({
   selector: 'app-main-component',
@@ -16,17 +13,6 @@ import { Casilla } from '../models/Casilla';
 
 export class MainComponentComponent {
   Flota = new Array<Barcos>;
-<<<<<<< HEAD
-  Barco1: Barcos = new Barcos(1, 0, false, [{ x: 1, y: 2 }], []);
-  coordX: number
-  coordY: number;
-
-
-  constructor() {
-    this.Flota = [this.Barco1];
-    this.coordX = 0
-    this.coordY = 0
-=======
   Barco1 = new Barcos(1, 0, false, [{ x: 1, y: 2 }], []);
   tablero: Casilla[][] = [[new Casilla, new Casilla, new Casilla],[new Casilla, new Casilla, new Casilla]];
 
@@ -34,7 +20,6 @@ export class MainComponentComponent {
     this.Flota = [this.Barco1];
     this.tablero
 
->>>>>>> 37482069078ffc7fb92395cb185d7e88c7682ddc
   }
 
   disparo(x: number, y: number): boolean {
@@ -56,21 +41,12 @@ export class MainComponentComponent {
     const impacto = this.disparo(x, y);
     if (impacto) {
       console.log("¡Has acertado!");
-<<<<<<< HEAD
-    } else {
-      console.log("¡Agua!");
-=======
       this.tablero[x][y].url = "boom.png";
     } else {
       console.log("¡Agua!");
       this.tablero[x][y].url = "agua.png";
->>>>>>> 37482069078ffc7fb92395cb185d7e88c7682ddc
     }
 
   }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 37482069078ffc7fb92395cb185d7e88c7682ddc
