@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Barcos } from '../models/Barcos';
 import { Coordenadas } from '../models/Cordenadas';
+import { Casilla } from '../models/Casilla';
 
 @Component({
   selector: 'app-main-component',
@@ -12,15 +13,13 @@ import { Coordenadas } from '../models/Cordenadas';
 
 export class MainComponentComponent {
   Flota = new Array<Barcos>;
-  Barco1: Barcos = new Barcos(1, 0, false, [{ x: 1, y: 2 }], []);
-  coordX: number
-  coordY: number;
-
+  Barco1 = new Barcos(1, 0, false, [{ x: 1, y: 2 }], []);
+  tablero: Casilla[][] = [[new Casilla, new Casilla, new Casilla],[new Casilla, new Casilla, new Casilla]];
 
   constructor() {
     this.Flota = [this.Barco1];
-    this.coordX = 0
-    this.coordY = 0
+    this.tablero
+
   }
 
   disparo(x: number, y: number): boolean {
@@ -42,8 +41,10 @@ export class MainComponentComponent {
     const impacto = this.disparo(x, y);
     if (impacto) {
       console.log("¡Has acertado!");
+      this.tablero[x][y].url = "boom.png";
     } else {
       console.log("¡Agua!");
+      this.tablero[x][y].url = "agua.png";
     }
 
   }
