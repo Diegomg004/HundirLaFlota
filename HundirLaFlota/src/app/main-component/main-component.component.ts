@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Barcos } from '../models/Barcos';
 import { Coordenadas } from '../models/Cordenadas';
 import { Casilla } from '../models/Casilla';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-main-component',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './main-component.component.html',
   styleUrl: './main-component.component.sass'
 })
@@ -21,6 +22,7 @@ export class MainComponentComponent {
   x: number = 0; 
   y: number = 0; 
   barcosMaximos: number = 5; 
+  general:boolean = true;
 
   constructor() {
     this.Flota = [this.Barco1];
@@ -65,6 +67,7 @@ export class MainComponentComponent {
     } else {
       alert('No puedes agregar más de 5 barcos.');
     }
+    
   }
 
   agregarCoordenadas() {
