@@ -35,16 +35,18 @@ export class MainComponentComponent {
     this.Flota.forEach(barco => {
       barco.coordenadasBarco.forEach((coordenada) => {
         console.log(coordenada);
-        console.log(x, y)
-        if (coordenada.x == x && coordenada.y == y) {
-          console.log("¡Impacto! Se ha alcanzado un barco en las coordenadas", x, y);
-          huboImpacto = true;
+        console.log(x, y);
+        if (coordenada.x == x) {
+          if (coordenada.y == y) {
+            console.log("¡Impacto! Se ha alcanzado un barco en las coordenadas", x, y);
+            huboImpacto = true;
+          }
         }
       });
     });
     return huboImpacto;
   }
-
+  
   realizarDisparo(x: number, y: number) { 
     const impacto = this.disparo(x, y);
     if (impacto) {
@@ -54,9 +56,8 @@ export class MainComponentComponent {
       console.log("¡Agua!");
       this.tablero[x][y].url = "agua.png";
     }
-
   }
-
+  
   agregarBarco() {
     if (this.flota.length < this.barcosMaximos) {
       let nuevoBarco = new Barcos(this.tamanoBarco, 0, false, this.coordenadas, []);
@@ -67,18 +68,20 @@ export class MainComponentComponent {
     } else {
       alert('No puedes agregar más de 5 barcos.');
     }
-    
   }
-
+  
   agregarCoordenadas() {
-    if (this.x >= 0 && this.y >= 0) {
-      this.coordenadas.push(new Coordenadas(this.x, this.y));
-      this.x = 0;
-      this.y = 0;
-      alert('Coordenadas agregadas.');
+    if (this.x >= 0) {
+      if (this.y >= 0) {
+        this.coordenadas.push(new Coordenadas(this.x, this.y));
+        this.x = 0;
+        this.y = 0;
+        alert('Coordenadas agregadas.');
+      } else {
+        alert('Introduce coordenadas válidas.');
+      }
     } else {
       alert('Introduce coordenadas válidas.');
     }
   }
-
-}
+}  
