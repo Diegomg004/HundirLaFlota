@@ -13,7 +13,6 @@ import { NgIf } from '@angular/common';
 })
 
 export class MainComponentComponent {
-  Flota = new Array<Barcos>;
   Barco1 = new Barcos(1, 0, false, [{ x: 1, y: 2 }], []);
   tablero: Casilla[][] = [[new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla],
   [new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla],
@@ -33,37 +32,52 @@ export class MainComponentComponent {
   barcosMaximos: number = 5; 
   general:boolean = true;
 
+  numberOfShootOnSheet:number = 0;
+  numberOfCoordOnSheet:number = 1;
+
   constructor() {
-    this.Flota = [this.Barco1];
+    this.flota = [this.Barco1];
     this.tablero
 
   }
 
   disparo(x: number, y: number): boolean {
     let huboImpacto = false;
-    this.Flota.forEach(barco => {
-      barco.coordenadasBarco.forEach((coordenada) => {
-        console.log(coordenada);
-        console.log(x, y)
-        if (coordenada.x == x && coordenada.y == y) {
-          console.log("¡Impacto! Se ha alcanzado un barco en las coordenadas", x, y);
-          huboImpacto = true;
-        }
+
+    
+      this.flota.forEach(barco => {
+        barco.coordenadasBarco.forEach((coordenada) => {
+          console.log(coordenada);
+          console.log(x, y)
+          if (coordenada.x == x && coordenada.y == y) {
+            console.log("¡Impacto! Se ha alcanzado un barco en las coordenadas", x, y);
+            huboImpacto = true;
+          }
+        });
       });
-    });
+
     return huboImpacto;
   }
 
   realizarDisparo(x: number, y: number) { 
-    const impacto = this.disparo(x, y);
-    if (impacto) {
-      console.log("¡Has acertado!");
-      this.tablero[x][y].url = "boom.png";
-    } else {
-      console.log("¡Agua!");
-      this.tablero[x][y].url = "agua.png";
-    }
+    if(this.numberOfShootOnSheet!==this.numberOfCoordOnSheet){
+      if(!this.tablero[x][y].disparado){
+        if (this.disparo(x, y)) {
+          console.log("¡Has acertado!");
+          this.tablero[x][y].url = "boom.png";
+          this.numberOfShootOnSheet++;
+          this.tablero[x][y].disparado = true;
+        } else {
+          console.log("¡Agua!");
+          this.tablero[x][y].url = "agua.png";
+          this.tablero[x][y].disparado = true;
+        }
+      }
 
+      if(this.numberOfShootOnSheet===this.numberOfCoordOnSheet){
+        alert("Has ganado!!!")
+      }
+    }
   }
 
   agregarBarco() {
