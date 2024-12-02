@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Flota } from '../models/Flota';
 import { Casilla } from '../models/Casilla';
 import { NgIf } from '@angular/common';
+import { Barcos } from '../models/Barcos';
+import { Coordenadas } from '../models/Cordenadas';
 
 @Component({
   selector: 'app-main-component',
