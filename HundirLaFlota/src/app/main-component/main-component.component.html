@@ -1,5 +1,5 @@
 <content *ngIf="general">
-    <input (click)="addBarco()" type="text" placeholder="Tamanño de barcos" />
+    <button (click)="addFlota()">Crear barcos</button>
     <table>
         <thead>
             <tr>
@@ -149,4 +149,25 @@
             </tr>
         </tbody>
     </table>
+</content>
+<content *ngIf="fBarcos">
+        <form (ngSubmit)="onSubmit()">
+            <div>
+                <label for="nombre">Tamaño del barco:</label>
+                <input type="text" id="tamaño" [(ngModel)]="sheep.tamano" name="tamaño" required>
+            </div>
+            <div>
+                <label for="nombre">Cordenada X:</label>
+                <input type="text" id="cordenada x" [(ngModel)]="sheep.xInicial" name="cordenada x" required>
+            </div>
+            <div>
+                <label for="nombre">Cordenada Y:</label>
+                <input type="text" id="cordenada y" [(ngModel)]="sheep.yInicial" name="cordenada y" required>
+            </div>
+            <div>
+                <label for="nombre">Orientacion:</label>
+                <input type="text" id="orientacion" [(ngModel)]="sheep.orientacion" name="orientacion" required>
+            </div>       
+            <button type="submit">Enviar</button>
+        </form>
 </content>

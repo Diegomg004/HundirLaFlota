@@ -3,17 +3,19 @@ import { Barcos } from '../models/Barcos';
 import { Coordenadas } from '../models/Cordenadas';
 import { Casilla } from '../models/Casilla';
 import { NgIf } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-main-component',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, FormsModule, CommonModule],
   templateUrl: './main-component.component.html',
   styleUrl: './main-component.component.sass'
 })
 
 export class MainComponentComponent {
-  Barco1 = new Barcos(1, 0, false, [{ x: 1, y: 2 }], []);
+
   tablero: Casilla[][] = [[new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla],
   [new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla],
   [new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla],
@@ -29,14 +31,17 @@ export class MainComponentComponent {
   coordenadas: Coordenadas[] = []; 
   x: number = 0; 
   y: number = 0; 
-  barcosMaximos: number = 5; 
+  barcosMaximos: number = 0; 
   general:boolean = true;
+  fBarcos:boolean = false;
 
   numberOfShootOnSheet:number = 0;
-  numberOfCoordOnSheet:number = 1;
+  numberOfCoordOnSheet:number = 0;
+
+  sheep:Barcos=new Barcos(0,0,0,"");
 
   constructor() {
-    this.flota = [this.Barco1];
+    this.flota = [];
     this.tablero
 
   }
@@ -44,7 +49,7 @@ export class MainComponentComponent {
   disparo(x: number, y: number): boolean {
     let huboImpacto = false;
       this.flota.forEach(barco => {
-        barco.coordenadasBarco.forEach((coordenada) => {
+        barco.cordenadasBarco.forEach((coordenada) => {
           console.log(coordenada);
           console.log(x, y)
           if (coordenada.x == x && coordenada.y == y) {
@@ -54,6 +59,14 @@ export class MainComponentComponent {
         });
       });
     return huboImpacto;
+  }
+
+  onSubmit() {
+    this.numberOfCoordOnSheet = this.sheep.tamano;
+    this.flota.push(new Barcos(this.sheep.tamano, this.sheep.xInicial, this.sheep.yInicial, this.sheep.orientacion));
+    this.general = true;
+    this.fBarcos = false;
+    console.log(this.flota)
   }
 
   realizarDisparo(x: number, y: number) { 
@@ -76,22 +89,11 @@ export class MainComponentComponent {
     }
   }
 
-  agregarBarco() {
-    if (this.flota.length < this.barcosMaximos) {
-      let nuevoBarco = new Barcos(this.tamanoBarco, 0, false, this.coordenadas, []);
-      this.flota.push(nuevoBarco);
-      this.tamanoBarco = 0;
-      this.coordenadas = [];
-      alert('Barco agregado exitosamente.');
-    } else {
-      alert('No puedes agregar más de 5 barcos.');
+  addFlota(){
+      this.general = false;
+      this.fBarcos = true;
     }
-    
-  }
-
-  addBarco(){
-    this.general = false;
-  }
+  
 
 
   // sumamaos la distancia horizotal y vertucal con el tamaño
