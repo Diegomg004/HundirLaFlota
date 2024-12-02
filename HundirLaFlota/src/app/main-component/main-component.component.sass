@@ -1,4 +1,4 @@
-body
+body 
   display: flex
   justify-content: center
   align-items: center
@@ -6,7 +6,8 @@ body
   font-family: Arial, sans-serif
   text-align: center
 
-table
+
+table 
   border-collapse: collapse
   margin: 20px auto
   background-image: url("/HundirLaFlota/src/app/imagenes/agua-salpicando.png")
@@ -14,20 +15,27 @@ table
   background-position: center
 
 
-th, td
+th, td 
   width: 70px
   height: 70px
   text-align: center
   border: 1px solid black
+  font-size: 20px
+  font-weight: bold
+  color: black
 
-th
+
+th 
   background-color: #f2f2f2
 
-td
-  &:hover
-    background-color: #d1ecf1
-    cursor: pointer
 
-a img
-  width: 70px
-  height: 70px
+td 
+  background-image: url("/HundirLaFlota/src/app/imagenes/agua-salpicando.png")
+  background-size: contain
+  background-repeat: no-repeat
+  background-position: center
+
+
+td:hover 
+  background-color: #d1ecf1
+  cursor: pointer
