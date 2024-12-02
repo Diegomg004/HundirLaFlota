@@ -7,7 +7,7 @@ import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-main-component',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './main-component.component.html',
   styleUrl: './main-component.component.sass'
 })
@@ -43,8 +43,6 @@ export class MainComponentComponent {
 
   disparo(x: number, y: number): boolean {
     let huboImpacto = false;
-
-    
       this.flota.forEach(barco => {
         barco.coordenadasBarco.forEach((coordenada) => {
           console.log(coordenada);
@@ -55,7 +53,6 @@ export class MainComponentComponent {
           }
         });
       });
-
     return huboImpacto;
   }
 
@@ -73,7 +70,6 @@ export class MainComponentComponent {
           this.tablero[x][y].disparado = true;
         }
       }
-
       if(this.numberOfShootOnSheet===this.numberOfCoordOnSheet){
         alert("Has ganado!!!")
       }
@@ -92,6 +88,13 @@ export class MainComponentComponent {
     }
     
   }
+
+  addBarco(){
+    this.general = false;
+  }
+
+
+  // sumamaos la distancia horizotal y vertucal con el tamaño
 
   agregarCoordenadas() {
     if (this.x >= 0 && this.y >= 0) {
