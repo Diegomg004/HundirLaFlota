@@ -49,6 +49,7 @@ export class MainComponentComponent {
   disparo(x: number, y: number): boolean {
     let huboImpacto = false;
       this.flota.forEach(barco => {
+        this.numberOfCoordOnSheet++;
         barco.cordenadasBarco.forEach((coordenada) => {
           console.log(coordenada);
           console.log(x, y)
@@ -62,7 +63,6 @@ export class MainComponentComponent {
   }
 
   onSubmit() {
-    this.numberOfCoordOnSheet = this.sheep.tamano;
     this.flota.push(new Barcos(this.sheep.tamano, this.sheep.xInicial, this.sheep.yInicial, this.sheep.orientacion));
     this.general = true;
     this.fBarcos = false;
