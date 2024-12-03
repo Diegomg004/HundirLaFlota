@@ -36,9 +36,13 @@ export class MainComponentComponent {
   fBarcos:boolean = false;
 
   numberOfShootOnSheet:number = 0;
+<<<<<<< prueba-marco
   numberOfCoordOnSheet:number = 0;
 
   sheep:Barcos=new Barcos(0,0,0,"");
+=======
+  numberOfCoordOnSheet:number = 100;
+>>>>>>> local
 
   constructor() {
     this.flota = [];
