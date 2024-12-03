@@ -1,5 +1,6 @@
-<<<<<<< HEAD
 <section>
+<content *ngIf="general">
+    <button (click)="addFlota()" class="crearBarco">Crear barcos</button>
     <table>
         <thead>
             <tr>
@@ -149,20 +150,25 @@
             </tr>
         </tbody>
     </table>
-</section>
-=======
-<table>
-    <tbody>
-        <tr>
-            <td><a (click)="realizarDisparo(0,0)"><img src="{{tablero[0][0].url}}"></a></td>
-            <td><a (click)="realizarDisparo(0,1)"><img src="{{tablero[0][1].url}}"></a></td>
-            <td><a (click)="realizarDisparo(0,2)"><img src="{{tablero[0][2].url}}"></a></td>
-        </tr>
-        <tr>
-            <td><a (click)="realizarDisparo(1,0)"><img src="{{tablero[1][0].url}}"></a></td>
-            <td><a (click)="realizarDisparo(1,1)"><img src="{{tablero[1][1].url}}"></a></td>
-            <td><a (click)="realizarDisparo(1,2)"><img src="{{tablero[1][2].url}}"></a></td>
-        </tr>
-    </tbody>
-</table>
->>>>>>> remotes/origin/prueba-diego
+</content>
+<content *ngIf="fBarcos">
+        <form (ngSubmit)="onSubmit()">
+            <div>
+                <label for="nombre">Tamaño del barco:</label>
+                <input type="text" id="tamaño" [(ngModel)]="sheep.tamano" name="tamaño" required>
+            </div>
+            <div>
+                <label for="nombre">Cordenada X:</label>
+                <input type="text" id="cordenada x" [(ngModel)]="sheep.xInicial" name="cordenada x" required>
+            </div>
+            <div>
+                <label for="nombre">Cordenada Y:</label>
+                <input type="text" id="cordenada y" [(ngModel)]="sheep.yInicial" name="cordenada y" required>
+            </div>
+            <div>
+                <label for="nombre">Orientacion:</label>
+                <input type="text" id="orientacion" [(ngModel)]="sheep.orientacion" name="orientacion" required>
+            </div>       
+            <button type="submit">Enviar</button>
+        </form>
+</content>
