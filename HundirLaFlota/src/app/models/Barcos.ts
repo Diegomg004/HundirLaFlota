@@ -14,7 +14,7 @@ export class Barcos {
     this._yInicial = _yInicial;
     this._orientacion = orientacion;
     this._cordenadasBarco = [];
-    if (this.orientacion === "V") {
+    if (this.orientacion === "V" || this.orientacion === "v") {
       for (var i:number = 0; i < _tamano; i++) {
         this._cordenadasBarco.push(new Coordenadas(_xInicial, _yInicial++));
       }
@@ -64,7 +64,7 @@ export class Barcos {
   }
 
   set orientacion(_orientacion) {
-    if (_orientacion !== "V" && _orientacion !== "H") {
+    if (_orientacion !== "V" && _orientacion !== "v"  && _orientacion !== "H" && _orientacion !== "h" ) {
       throw new Error("La orientación debe ser 'V' (vertical) o 'H' (horizontal).");
     }
     this._orientacion = _orientacion;

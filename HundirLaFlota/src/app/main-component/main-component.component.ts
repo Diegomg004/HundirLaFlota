@@ -36,13 +36,11 @@ export class MainComponentComponent {
   fBarcos:boolean = false;
 
   numberOfShootOnSheet:number = 0;
-<<<<<<< prueba-marco
   numberOfCoordOnSheet:number = 0;
 
   sheep:Barcos=new Barcos(0,0,0,"");
-=======
-  numberOfCoordOnSheet:number = 100;
->>>>>>> local
+  disparadoUnaVez:boolean = false;
+ 
 
   constructor() {
     this.flota = [];
@@ -52,8 +50,8 @@ export class MainComponentComponent {
 
   disparo(x: number, y: number): boolean {
     let huboImpacto = false;
+    this.disparadoUnaVez = true;
       this.flota.forEach(barco => {
-        this.numberOfCoordOnSheet++;
         barco.cordenadasBarco.forEach((coordenada) => {
           console.log(coordenada);
           console.log(x, y)
@@ -71,9 +69,10 @@ export class MainComponentComponent {
     this.general = true;
     this.fBarcos = false;
     console.log(this.flota)
+    this.numberOfCoordOnSheet = this.numberOfCoordOnSheet + this.sheep.tamano;
   }
 
-  realizarDisparo(x: number, y: number) { 
+  realizarDisparo(x: number, y: number) {
     if(this.numberOfShootOnSheet!==this.numberOfCoordOnSheet){
       if(!this.tablero[x][y].disparado){
         if (this.disparo(x, y)) {
@@ -87,6 +86,7 @@ export class MainComponentComponent {
           this.tablero[x][y].disparado = true;
         }
       }
+      console.log(this.numberOfCoordOnSheet+"-"+this.numberOfShootOnSheet)
       if(this.numberOfShootOnSheet===this.numberOfCoordOnSheet){
         alert("Has ganado!!!")
       }
