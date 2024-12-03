@@ -10,17 +10,17 @@ export class Barcos {
 
   constructor(_tamano: number, _xInicial: number, _yInicial: number, orientacion: string) {
     this._tamano = _tamano;
-    this._xInicial = _xInicial;
-    this._yInicial = _yInicial;
+    this._xInicial = _xInicial -1;
+    this._yInicial = _yInicial -1;
     this._orientacion = orientacion;
     this._cordenadasBarco = [];
-    if (this.orientacion === "V" || this.orientacion === "v") {
+    if (this.orientacion === "H" || this.orientacion === "h") {
       for (var i:number = 0; i < _tamano; i++) {
-        this._cordenadasBarco.push(new Coordenadas(_xInicial, _yInicial++));
+        this._cordenadasBarco.push(new Coordenadas(this._xInicial, this._yInicial++));
       }
     } else {
       for (var i:number = 0; i < _tamano; i++) {
-        this._cordenadasBarco.push(new Coordenadas(_xInicial++, _yInicial));
+        this._cordenadasBarco.push(new Coordenadas(this._xInicial++, this._yInicial));
       }
     }
 

@@ -38,7 +38,7 @@ export class MainComponentComponent {
   numberOfShootOnSheet:number = 0;
   numberOfCoordOnSheet:number = 0;
 
-  sheep:Barcos=new Barcos(0,0,0,"");
+  sheep:Barcos=new Barcos(0,1,1,"");
   disparadoUnaVez:boolean = false;
  
 
@@ -70,6 +70,7 @@ export class MainComponentComponent {
     this.fBarcos = false;
     console.log(this.flota)
     this.numberOfCoordOnSheet = this.numberOfCoordOnSheet + this.sheep.tamano;
+    
   }
 
   realizarDisparo(x: number, y: number) {
