@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Barcos } from '../models/Barcos';
-import { Coordenadas } from '../models/Cordenadas';
+import { Flota } from '../models/Flota';
 import { Casilla } from '../models/Casilla';
 import { NgIf } from '@angular/common';
 
@@ -11,7 +10,6 @@ import { NgIf } from '@angular/common';
   templateUrl: './main-component.component.html',
   styleUrl: './main-component.component.sass'
 })
-
 export class MainComponentComponent {
   Barco1 = new Barcos(1, 0, false, [{ x: 1, y: 2 }], []);
   tablero: Casilla[][] = [[new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla],
@@ -41,6 +39,7 @@ export class MainComponentComponent {
 
   }
 
+<<<<<<< HEAD
   disparo(x: number, y: number): boolean {
     let huboImpacto = false;
 
@@ -57,7 +56,10 @@ export class MainComponentComponent {
       });
 
     return huboImpacto;
+=======
+>>>>>>> remotes/origin/prueba-diego
   }
+}
 
   realizarDisparo(x: number, y: number) { 
     if(this.numberOfShootOnSheet!==this.numberOfCoordOnSheet){
