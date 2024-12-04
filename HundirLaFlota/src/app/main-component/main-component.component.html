@@ -1,10 +1,5 @@
-<section>
 <content *ngIf="general">
-<<<<<<< HEAD
-    <button *ngIf="!disparadoUnaVez" (click)="addFlota()">Crear barcos</button>
-=======
-    <button (click)="addFlota()" class="crearBarco">Crear barcos</button>
->>>>>>> refs/heads/prueba-diego
+    <button *ngIf="!disparadoUnaVez" (click)="addFlota()" class="crearBarco">Crear barcos</button>
     <table>
         <thead>
             <tr>
@@ -48,6 +43,7 @@
                 <td><a (click)="realizarDisparo(1,8)"><img src="{{tablero[1][8].url}}"></a></td>
                 <td><a (click)="realizarDisparo(1,9)"><img src="{{tablero[1][9].url}}"></a></td>
             </tr>
+            
             <tr>
                 <th>3</th>
                 <td><a (click)="realizarDisparo(2,0)"><img src="{{tablero[2][0].url}}"></a></td>
