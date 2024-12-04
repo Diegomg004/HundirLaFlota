@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Barcos } from '../models/Barcos';
-import { Coordenadas } from '../models/Cordenadas';
 import { Casilla } from '../models/Casilla';
 import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Barcos } from '../models/Barcos';
+import { Coordenadas } from '../models/Cordenadas';
 
 @Component({
   selector: 'app-main-component',
@@ -13,8 +13,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './main-component.component.html',
   styleUrl: './main-component.component.sass'
 })
-
 export class MainComponentComponent {
+  [x: string]: any;
 
   tablero: Casilla[][] = [[new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla],
   [new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla, new Casilla],
@@ -45,7 +45,6 @@ export class MainComponentComponent {
   constructor() {
     this.flota = [];
     this.tablero
-
   }
 
   disparo(x: number, y: number): boolean {
@@ -76,7 +75,7 @@ export class MainComponentComponent {
   realizarDisparo(x: number, y: number) {
     if(this.numberOfShootOnSheet!==this.numberOfCoordOnSheet){
       if(!this.tablero[x][y].disparado){
-        if (this.disparo(x, y)) {
+        if (this['disparo'](x, y)) {
           console.log("¡Has acertado!");
           this.tablero[x][y].url = "boom.png";
           this.numberOfShootOnSheet++;
@@ -98,10 +97,6 @@ export class MainComponentComponent {
       this.general = false;
       this.fBarcos = true;
     }
-  
-
-
-  // sumamaos la distancia horizotal y vertucal con el tamaño
 
   agregarCoordenadas() {
     if (this.x >= 0 && this.y >= 0) {
@@ -114,4 +109,4 @@ export class MainComponentComponent {
     }
   }
 
-}
+  }
