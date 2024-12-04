@@ -3,32 +3,45 @@ section
   background-size: cover
   background-position: center
   background-repeat: no-repeat
-  height: 102vh
+  height: 100vh
   margin: 0
-  
+
+.crearBarco
+  display: block
+  width: 100%
+  padding: 10px
+  background-color: #000
+  color: white
+  border: none
+  border-radius: 4px
+  font-size: 16px
+  cursor: pointer
+  transition: background-color 0.3s ease
+
 body
   display: flex
+  justify-content: center
+  align-items: center
   height: 100vh
-  font-family: 'Impact'
+  font-family: Arial, sans-serif
   text-align: center
 
 table
-  margin: auto
-  
+  border-collapse: collapse
+  margin: 20px auto
+  background-image: url("/HundirLaFlota/src/app/imagenes/agua-salpicando.png")
+  background-size: cover
+  background-position: center
+
 
 th, td
-  width: 65px
-  height: 65px
+  width: 70px
+  height: 70px
   text-align: center
+  border: 1px solid black
 
 th
-  background-color: #808088
-  font-family: 'Impact'
-  font-size: 20px
-  font-weight: bold
-  -webkit-text-stroke: 0.8px black
-  color: white
-  word-spacing: 0.1em
+  background-color: #f2f2f2
 
 td
   &:hover
@@ -36,5 +49,61 @@ td
     cursor: pointer
 
 a img
-  width: 75px
-  height: 75px
+  width: 70px
+  height: 70px
+
+$primary-color: #000000
+$secondary-color: #6c757d
+$background-color: #dae725
+$font-color: #212529
+
+body
+  font-family: 'Arial', sans-serif
+  background-color: $background-color
+  color: $font-color
+  margin: 0
+  padding: 0
+
+form 
+  background: white
+  padding: 20px
+  margin: 20px auto
+  border-radius: 8px
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
+  max-width: 400px
+  border: 1px solid $secondary-color
+  padding-top: 30px
+
+  label 
+    display: block
+    margin-bottom: 8px
+    font-weight: bold
+    color: $primary-color
+
+  input 
+    width: 100%
+    padding: 10px
+    margin-bottom: 15px
+    border: 1px solid $secondary-color
+    border-radius: 4px
+    box-sizing: border-box
+
+    &:focus 
+      outline: none
+      border-color: $primary-color
+      box-shadow: 0 0 4px rgb(208, 211, 40)
+
+  button 
+    display: block
+    width: 100%
+    padding: 10px
+    background-color: $primary-color
+    color: white
+    border: none
+    border-radius: 4px
+    font-size: 16px
+    cursor: pointer
+    transition: background-color 0.3s ease
+
+    &:hover 
+      background-color: darken($primary-color, 10%)
