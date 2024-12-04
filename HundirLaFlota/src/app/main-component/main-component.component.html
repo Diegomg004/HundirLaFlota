@@ -1,5 +1,5 @@
 <content *ngIf="general">
-    <button *ngIf="!disparadoUnaVez" (click)="addFlota()" class="crearBarco">Crear barcos</button>
+    <button (click)="addFlota()" class="crearBarco">Crear barcos</button>
     <table>
         <thead>
             <tr>
@@ -43,7 +43,6 @@
                 <td><a (click)="realizarDisparo(1,8)"><img src="{{tablero[1][8].url}}"></a></td>
                 <td><a (click)="realizarDisparo(1,9)"><img src="{{tablero[1][9].url}}"></a></td>
             </tr>
-            
             <tr>
                 <th>3</th>
                 <td><a (click)="realizarDisparo(2,0)"><img src="{{tablero[2][0].url}}"></a></td>
@@ -155,15 +154,15 @@
         <form (ngSubmit)="onSubmit()">
             <div>
                 <label for="nombre">Tamaño del barco:</label>
-                <input type="number" id="tamaño" [(ngModel)]="sheep.tamano" name="tamaño" required>
+                <input type="text" id="tamaño" [(ngModel)]="sheep.tamano" name="tamaño" required>
             </div>
             <div>
                 <label for="nombre">Cordenada X:</label>
-                <input type="number" id="cordenada x" [(ngModel)]="sheep.xInicial" name="cordenada x" required>
+                <input type="text" id="cordenada x" [(ngModel)]="sheep.xInicial" name="cordenada x" required>
             </div>
             <div>
                 <label for="nombre">Cordenada Y:</label>
-                <input type="number" id="cordenada y" [(ngModel)]="sheep.yInicial" name="cordenada y" required>
+                <input type="text" id="cordenada y" [(ngModel)]="sheep.yInicial" name="cordenada y" required>
             </div>
             <div>
                 <label for="nombre">Orientacion:</label>
